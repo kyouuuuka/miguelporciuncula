@@ -96,15 +96,3 @@ body {
   .hero-fog,
   .hero-fog-2 { animation: none; }
 }
-
-/* Animated scroll cue */
-@keyframes scrollcue {
-  0%, 100% { transform: translateY(0); opacity: 0.4; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
-.scroll-cue {
-  animation: scrollcue 1.8s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .scroll-cue { animation: none; }
-}

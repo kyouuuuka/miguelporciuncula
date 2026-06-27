@@ -123,11 +123,6 @@ export default function Hero() {
             Get in Touch
           </a>
         </div>
-
-        <div className="mt-16 flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-paper/50">
-          <span className="scroll-cue inline-block">↓</span>
-          Scroll
-        </div>
       </div>
     </section>
   );
