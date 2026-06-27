@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+/* ---- Monochrome theme derived from cateyes.jpg + butterfly.jpg ---- */
+@theme {
+  --color-ink: #0a0a0b;        /* deep black (cateyes shadow) */
+  --color-charcoal: #151517;   /* raised dark surface */
+  --color-graphite: #2a2a2d;   /* borders on dark */
+  --color-ash: #b6b6b8;        /* butterfly background gray */
+  --color-mist: #d7d7d5;       /* soft light gray */
+  --color-bone: #e9e8e4;       /* warm light */
+  --color-paper: #f5f4f1;      /* near-white page */
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-logo: "Cinzel", Georgia, serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Thin grain so flat sections feel like the photos' film texture */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hero clouds: two layers drifting opposite ways at different speeds.
+   Larger travel than fog so the movement reads, with a touch of vertical
+   sway to feel organic rather than a flat slide. */
+@keyframes heroCloudA {
+  0%, 100% { transform: translate3d(-12%, -1%, 0); }
+  50% { transform: translate3d(12%, 1%, 0); }
+}
+@keyframes heroCloudB {
+  0%, 100% { transform: translate3d(10%, 1%, 0); }
+  50% { transform: translate3d(-10%, -1.5%, 0); }
+}
+.hero-fog {
+  animation: heroCloudA 34s ease-in-out infinite;
+  will-change: transform;
+}
+.hero-fog-2 {
+  animation: heroCloudB 48s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-fog,
+  .hero-fog-2 { animation: none; }
+}
+
+/* Animated scroll cue */
+@keyframes scrollcue {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+.scroll-cue {
+  animation: scrollcue 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue { animation: none; }
+}
