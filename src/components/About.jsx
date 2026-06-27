@@ -2,7 +2,7 @@ import Reveal from "./Reveal.jsx";
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-paper py-28 lg:py-40">
+    <section id="about" data-nav="light" className="relative bg-paper py-28 lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="mb-14 flex items-center gap-4">
           <span className="text-xs font-medium tabular-nums tracking-[0.3em] text-ink/40">

@@ -3,16 +3,19 @@ import { useEffect, useRef, useState } from "react";
 // Lightweight scroll reveal. Adds .is-visible once the node enters the viewport.
 export default function Reveal({ as: Tag = "div", className = "", delay = 0, children, ...rest }) {
   const ref = useRef(null);
-  const [shown, setShown] = useState(false);
+  // Start visible when reduced motion is requested, so we never animate (and
+  // never need a synchronous setState inside the effect).
+  const [shown, setShown] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) {
-      setShown(true);
-      return;
-    }
+    // Reduced motion already starts `shown` true — nothing to observe.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

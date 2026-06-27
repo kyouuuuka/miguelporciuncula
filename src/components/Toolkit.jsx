@@ -21,7 +21,7 @@ const GROUPS = [
 
 export default function Toolkit() {
   return (
-    <section id="toolkit" className="bg-paper py-28 lg:py-40">
+    <section id="toolkit" data-nav="light" className="bg-paper py-28 lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="mb-16 flex items-center gap-4">
           <span className="text-xs font-medium tabular-nums tracking-[0.3em] text-ink/40">

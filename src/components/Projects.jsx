@@ -41,7 +41,7 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="bg-charcoal py-28 text-paper lg:py-40">
+    <section id="projects" data-nav="dark" className="bg-charcoal py-28 text-paper lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="mb-16 flex items-end justify-between gap-6">
           <div className="flex items-center gap-4">

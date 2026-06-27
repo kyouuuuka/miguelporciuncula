@@ -51,6 +51,7 @@ export default function Hero() {
   return (
     <section
       id="top"
+      data-nav="dark"
       className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-ink text-paper"
     >
       {/* Background photo: cateyesreal2.png */}
@@ -68,7 +69,7 @@ export default function Hero() {
           Disabled under prefers-reduced-motion (see index.css). */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
-          className="hero-fog absolute -inset-x-[30%] inset-y-0"
+          className="hero-fog absolute inset-x-[-30%] inset-y-0"
           style={{
             background:
               "radial-gradient(50% 45% at 28% 30%, rgba(245,244,241,0.12), transparent 68%)," +
@@ -77,7 +78,7 @@ export default function Hero() {
           }}
         />
         <div
-          className="hero-fog-2 absolute -inset-x-[30%] inset-y-0"
+          className="hero-fog-2 absolute inset-x-[-30%] inset-y-0"
           style={{
             background:
               "radial-gradient(46% 40% at 60% 26%, rgba(245,244,241,0.08), transparent 70%)," +
@@ -87,8 +88,8 @@ export default function Hero() {
       </div>
 
       {/* Tonal scrims to keep text readable over the photo */}
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+      <div className="absolute inset-0 bg-linear-to-r from-ink via-ink/70 to-ink/20" />
+      <div className="absolute inset-0 bg-linear-to-t from-ink via-transparent to-ink/40" />
 
       <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32 lg:px-10">
         <p className="mb-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-paper/60">

@@ -10,15 +10,31 @@ const LINKS = [
 ];
 
 export default function Nav() {
+  // Transparent over the hero; becomes a solid bar once scrolled...
   const [scrolled, setScrolled] = useState(false);
+  // ...except at the very end (Contact + Footer), where it goes back to the
+  // hero look: transparent with light text.
+  const [atEnd, setAtEnd] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const NAV_PROBE = 32; // px from top — the nav's vertical centre
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const contact = document.getElementById("contact");
+      setAtEnd(contact ? contact.getBoundingClientRect().top <= NAV_PROBE : false);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
+
+  // Solid bar only when scrolled AND not in the dark end zone.
+  const solid = scrolled && !atEnd;
 
   // Lock body scroll while the mobile sheet is open.
   useEffect(() => {
@@ -30,9 +46,9 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled
-          ? "bg-paper/70 backdrop-blur-md border-b border-ink/5"
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        solid
+          ? "bg-paper border-b border-ink/10 shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -40,8 +56,8 @@ export default function Nav() {
         <a
           href="#top"
           aria-label="Miguel Porciuncula — home"
-          className={`group leading-none transition-colors ${
-            scrolled ? "text-ink" : "text-paper"
+          className={`group relative z-50 leading-none transition-colors duration-300 ${
+            open || solid ? "text-ink" : "text-paper"
           }`}
         >
           <span className="font-logo text-2xl font-semibold tracking-[0.15em]">
@@ -51,8 +67,8 @@ export default function Nav() {
 
         {/* Desktop links */}
         <ul
-          className={`hidden items-center gap-7 md:flex ${
-            scrolled ? "text-ink" : "text-paper"
+          className={`hidden items-center gap-7 transition-colors duration-300 md:flex ${
+            solid ? "text-ink" : "text-paper"
           }`}
         >
           {LINKS.map((l) => (
@@ -76,15 +92,15 @@ export default function Nav() {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className={`relative z-50 flex h-11 w-11 items-center justify-center md:hidden ${
-            open || scrolled ? "text-ink" : "text-paper"
+          className={`relative z-50 flex h-11 w-11 items-center justify-center transition-colors duration-300 md:hidden ${
+            open || solid ? "text-ink" : "text-paper"
           }`}
         >
           <span className="sr-only">Menu</span>
           <div className="flex flex-col items-end gap-1.5">
             <span
               className={`block h-px bg-current transition-all duration-300 ${
-                open ? "w-6 translate-y-[7px] rotate-45" : "w-6"
+                open ? "w-6 translate-y-1.75 rotate-45" : "w-6"
               }`}
             />
             <span
@@ -94,7 +110,7 @@ export default function Nav() {
             />
             <span
               className={`block h-px bg-current transition-all duration-300 ${
-                open ? "w-6 -translate-y-[7px] -rotate-45" : "w-5"
+                open ? "w-6 -translate-y-1.75 -rotate-45" : "w-5"
               }`}
             />
           </div>

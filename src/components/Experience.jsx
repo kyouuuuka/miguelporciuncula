@@ -29,7 +29,7 @@ const ROLES = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="bg-ink py-28 text-paper lg:py-40">
+    <section id="experience" data-nav="dark" className="bg-ink py-28 text-paper lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="mb-16 flex items-center gap-4">
           <span className="text-xs font-medium tabular-nums tracking-[0.3em] text-paper/40">
@@ -45,7 +45,7 @@ export default function Experience() {
             <Reveal
               key={r.role}
               delay={i * 80}
-              className="group grid gap-4 py-9 transition-colors duration-300 hover:bg-paper/[0.03] sm:grid-cols-12 sm:gap-8 sm:px-2"
+              className="group grid gap-4 py-9 transition-colors duration-300 hover:bg-paper/3 sm:grid-cols-12 sm:gap-8 sm:px-2"
             >
               <div className="sm:col-span-3">
                 <span className="text-sm tabular-nums text-paper/50">

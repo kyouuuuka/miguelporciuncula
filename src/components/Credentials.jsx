@@ -25,7 +25,7 @@ const CERTS = [
 
 export default function Credentials() {
   return (
-    <section id="credentials" className="bg-paper py-28 lg:py-40">
+    <section id="credentials" data-nav="light" className="bg-paper py-28 lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="mb-16 flex items-center gap-4">
           <span className="text-xs font-medium tabular-nums tracking-[0.3em] text-ink/40">
@@ -54,7 +54,7 @@ export default function Credentials() {
                   as="li"
                   key={c.title}
                   delay={i * 70}
-                  className="group flex items-center justify-between gap-6 py-6 transition-colors duration-300 hover:bg-ink/[0.02]"
+                  className="group flex items-center justify-between gap-6 py-6 transition-colors duration-300 hover:bg-ink/2"
                 >
                   <div>
                     <h3 className="text-lg font-medium text-ink">{c.title}</h3>
