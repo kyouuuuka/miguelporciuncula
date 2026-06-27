@@ -12,6 +12,9 @@ function useNameParallax() {
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Only run on devices with a real cursor. On touch screens there's nothing
+    // to follow, and listening to pointermove would fire during scroll.
+    if (!window.matchMedia("(pointer: fine)").matches) return;
 
     const target = { x: 0, y: 0 };
     const smooth = { x: 0, y: 0 };
@@ -48,7 +51,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-dvh flex-col justify-end overflow-hidden bg-ink text-paper"
+      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-ink text-paper"
     >
       {/* Background photo: cateyesreal2.png */}
       <img
