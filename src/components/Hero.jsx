@@ -105,8 +105,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/70 sm:text-lg">
-            I build clean, considered interfaces — products that stay quiet,
-            move with intent, and leave the work doing the talking.
+            Just someone who enjoys making things.
           </p>
         </div>
 

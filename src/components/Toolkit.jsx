@@ -15,7 +15,7 @@ const GROUPS = [
   },
   {
     title: "Backend & Data",
-    items: ["Node.js", "Express", "PostgreSQL", "REST", "Supabase"],
+    items: ["Node.js", "Express", "PostgreSQL", "MySQL", "PHP", "REST", "Supabase"],
   },
 ];
 

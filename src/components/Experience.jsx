@@ -2,28 +2,52 @@ import Reveal from "./Reveal.jsx";
 
 const ROLES = [
   {
-    period: "2024 — Now",
-    role: "Frontend Developer",
-    org: "Freelance / Independent",
+    period: "Early 2026",
+    role: "Full-Stack & Game Developer",
+    org: "Student",
     blurb:
-      "Designing and building marketing sites, dashboards, and product UIs for early-stage teams. End-to-end: from wireframe to shipped React app.",
-    stack: ["React", "TypeScript", "Tailwind"],
+      "Co-developed a gamified science LMS for Grade 7 students as an undergraduate thesis, designing interactive lessons around shorter attention spans. Built two in-lesson games with Phaser on a React/Node stack.",
+    stack: ["React", "Vite", "Tailwind", "Node", "Phaser"],
+  },
+  {
+    period: "2025 — Early 2026",
+    role: "AI & Back-End Developer",
+    org: "Student",
+    blurb:
+      "Built an AI-driven internship matching platform that pairs students with best-fit companies by analyzing their skill sets. Led model training and developed the back-end services and database.",
+    stack: ["JavaScript", "MySQL", "PHP"],
+  },
+  {
+    period: "2024 — 2025",
+    role: "Back-End Developer",
+    org: "Student",
+    blurb:
+      "Developed the back end for a cinema booking application supporting movie, showtime, seat, and payment selection. Designed the database schema and implemented the interaction logic behind the Java Swing UI.",
+    stack: ["MySQL", "PHP", "JavaScript"],
+  },
+  {
+    period: "2024",
+    role: "Embedded Developer",
+    org: "Student",
+    blurb:
+      "Built a fingerprint scanner on an Arduino Uno with an LCD display, supporting fingerprint registration, removal, and detection.",
+    stack: ["Arduino", "C++"],
   },
   {
     period: "2023 — 2024",
-    role: "UI Engineer",
-    org: "Studio Project",
+    role: "Front-End Developer",
+    org: "Student",
     blurb:
-      "Owned the component library and motion system for a content platform. Cut page weight and brought a consistent, accessible design language across the app.",
-    stack: ["Next.js", "Framer Motion", "Storybook"],
+      "Independently built a front-end ordering system for a fictional company as a Web Development course project, implementing the full interface and ordering flow.",
+    stack: ["JavaScript", "HTML", "CSS"],
   },
   {
-    period: "2022 — 2023",
-    role: "Junior Web Developer",
-    org: "Early Career",
+    period: "2023",
+    role: "Web Developer",
+    org: "Student",
     blurb:
-      "Shipped responsive client websites and learned the craft: semantic HTML, performance budgets, and the value of a tidy git history.",
-    stack: ["JavaScript", "Vite", "Node"],
+      "First web project: a fan page for Kanon of Atarashii Gakko!, hand-coded in pure HTML and CSS.",
+    stack: ["HTML", "CSS"],
   },
 ];
 

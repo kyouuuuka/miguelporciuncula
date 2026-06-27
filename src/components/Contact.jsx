@@ -42,7 +42,9 @@ export default function Contact() {
 
         <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="mailto:migoyporciuncula@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=migoyporciuncula@gmail.com"
+            target="_blank"
+            rel="noreferrer"
             className="group inline-flex items-center gap-3 rounded-full bg-paper px-8 py-4 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.02] active:scale-95"
           >
             migoyporciuncula@gmail.com
@@ -50,14 +52,31 @@ export default function Contact() {
               →
             </span>
           </a>
+
+          {/* CV download — wired up but intentionally inert until the file is added.
+              Drop the PDF at public/miguel-porciuncula-cv.pdf and switch this
+              <button> to an <a href download> to enable. */}
+          <button
+            type="button"
+            aria-disabled="true"
+            className="group inline-flex items-center gap-3 rounded-full border border-paper/25 px-8 py-4 text-sm font-medium text-paper/80 transition-colors duration-300 hover:border-paper/50 hover:text-paper"
+          >
+            Download CV
+            <span className="text-paper/50 transition-transform duration-300 group-hover:translate-y-0.5">
+              ↓
+            </span>
+          </button>
         </Reveal>
 
         <Reveal delay={200} className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           {[
-            { label: "GitHub", href: "https://github.com/" },
-            { label: "LinkedIn", href: "https://www.linkedin.com/" },
-            { label: "Twitter / X", href: "https://x.com/" },
-            { label: "Read.cv", href: "https://read.cv/" },
+            { label: "GitHub", href: "https://github.com/kyouuuuka" },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/in/miguel-porciuncula-03bab6415/",
+            },
+            { label: "Facebook", href: "https://www.facebook.com/miggy.porciuncula" },
+            { label: "Instagram", href: "https://www.instagram.com/migoy_p/" },
           ].map((s) => (
             <a
               key={s.label}

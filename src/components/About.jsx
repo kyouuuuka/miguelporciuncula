@@ -16,22 +16,21 @@ export default function About() {
         <div className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
             <h2 className="font-display text-3xl font-light leading-tight tracking-tight sm:text-4xl lg:text-[3.25rem]">
-              I’m a developer drawn to the small details — the half-second of
-              motion, the line that finally reads right, the interface that
-              gets out of your way.
+              I'm a full-stack developer specializing in back-end development, dedicated to building reliable systems that put user-friendliness at the heart of everything I create.
             </h2>
           </Reveal>
 
-          <Reveal className="space-y-6 text-base leading-relaxed text-ink/70 lg:col-span-4" delay={120}>
+          <Reveal className="space-y-6 text-base leading-relaxed text-ink/70 text-justify lg:col-span-4" delay={120}>
             <p>
-              I work across the frontend stack, turning rough ideas into
-              products that feel calm and intentional. My focus is clarity:
-              clean structure, honest typography, and motion that means
-              something.
+              I work across the full stack, turning rough ideas into products
+              that feel calm and intentional. My focus is clarity: solid
+              foundations, clean structure, and systems that quietly do their
+              job so the experience never has to fight for itself.
             </p>
             <p>
-              When I’m not shipping, I’m studying photography and design — which
-              is where the monochrome obsession comes from.
+            When I’m not shipping, I’m usually buried in photography and
+              design which is probably where the monochrome obsession leaks
+              in from.
             </p>
           </Reveal>
         </div>
@@ -39,10 +38,10 @@ export default function About() {
         {/* Quick stats */}
         <Reveal className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-4" delay={80}>
           {[
-            { k: "4+", v: "Years building" },
-            { k: "30+", v: "Projects shipped" },
-            { k: "10+", v: "Happy clients" },
-            { k: "∞", v: "Cups of coffee" },
+            { k: "4th year", v: "Student" },
+            { k: "Bulacan", v: "Location" },
+             { k: "5+", v: "Projects shipped" },
+            { k: "Web · AI", v: "Focus" },
           ].map((s) => (
             <div key={s.v} className="bg-paper px-6 py-8">
               <div className="font-display text-4xl font-light">{s.k}</div>

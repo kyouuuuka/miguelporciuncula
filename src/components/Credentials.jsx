@@ -1,28 +1,5 @@
 import Reveal from "./Reveal.jsx";
 
-const CERTS = [
-  {
-    title: "Meta Front-End Developer",
-    issuer: "Meta · Coursera",
-    year: "2024",
-  },
-  {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    year: "2023",
-  },
-  {
-    title: "JavaScript Algorithms & Data Structures",
-    issuer: "freeCodeCamp",
-    year: "2023",
-  },
-  {
-    title: "UI/UX Design Fundamentals",
-    issuer: "Google · Coursera",
-    year: "2022",
-  },
-];
-
 export default function Credentials() {
   return (
     <section id="credentials" data-nav="light" className="bg-paper py-28 lg:py-40">
@@ -36,38 +13,18 @@ export default function Credentials() {
           </span>
         </Reveal>
 
-        <div className="grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4">
-            <h2 className="font-display text-3xl font-light leading-tight tracking-tight sm:text-4xl">
-              Certifications &amp; ongoing study
-            </h2>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink/60">
-              I treat learning as part of the craft — here’s a sample of the
-              formal work behind the practice.
-            </p>
-          </Reveal>
-
-          <div className="lg:col-span-8">
-            <ul className="divide-y divide-ink/10 border-y border-ink/10">
-              {CERTS.map((c, i) => (
-                <Reveal
-                  as="li"
-                  key={c.title}
-                  delay={i * 70}
-                  className="group flex items-center justify-between gap-6 py-6 transition-colors duration-300 hover:bg-ink/2"
-                >
-                  <div>
-                    <h3 className="text-lg font-medium text-ink">{c.title}</h3>
-                    <p className="mt-1 text-sm text-ink/50">{c.issuer}</p>
-                  </div>
-                  <span className="text-sm tabular-nums text-ink/40">
-                    {c.year}
-                  </span>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <Reveal className="flex flex-col items-start gap-6 rounded-2xl border border-dashed border-ink/15 px-8 py-20 text-center sm:items-center">
+          <span className="text-xs font-medium uppercase tracking-[0.3em] text-ink/40">
+            Coming soon
+          </span>
+          <h2 className="font-display text-3xl font-light leading-tight tracking-tight sm:text-4xl">
+            Certifications on the way
+          </h2>
+          <p className="max-w-md text-sm leading-relaxed text-ink/60">
+            I&apos;m gathering my certificates — this section will be updated
+            soon.
+          </p>
+        </Reveal>
       </div>
     </section>
   );
