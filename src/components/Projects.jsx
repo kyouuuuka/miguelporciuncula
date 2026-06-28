@@ -23,10 +23,18 @@ function Thumbnail({ project }) {
   );
 }
 
-function ProjectCard({ project: p, className = "" }) {
+function ProjectCard({ project: p, className = "", onNavigate }) {
   const Card = p.link ? "a" : "article";
   const linkProps = p.link
-    ? { href: p.link, target: "_blank", rel: "noreferrer" }
+    ? {
+        href: p.link,
+        target: "_blank",
+        rel: "noreferrer",
+        onClick: (e) => {
+          e.preventDefault();
+          onNavigate(p);
+        },
+      }
     : {};
   return (
     <Card
@@ -69,6 +77,15 @@ export default function Projects() {
   const scroller = useRef(null);
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
+  const [redirect, setRedirect] = useState(null);
+
+  const handleNavigate = useCallback((project) => {
+    setRedirect(project);
+    window.setTimeout(() => {
+      window.open(project.link, "_blank", "noopener,noreferrer");
+      setRedirect(null);
+    }, 1100);
+  }, []);
 
   const updateArrows = useCallback(() => {
     const el = scroller.current;
@@ -133,6 +150,7 @@ export default function Projects() {
               <ProjectCard
                 key={p.title}
                 project={p}
+                onNavigate={handleNavigate}
                 className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[31.5%]"
               />
             ))}
@@ -140,6 +158,26 @@ export default function Projects() {
             <div className="w-px shrink-0" aria-hidden="true" />
           </div>
         </div>
+
+      {redirect && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/80 px-6 backdrop-blur-sm"
+        >
+          <div className="flex flex-col items-center gap-5 text-center">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-paper/20 border-t-paper" />
+            <div className="space-y-1.5">
+              <p className="font-display text-xl font-light tracking-tight text-paper">
+                Redirecting to {redirect.title}…
+              </p>
+              <p className="text-xs tracking-wide text-paper/45">
+                {new URL(redirect.link).hostname}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
