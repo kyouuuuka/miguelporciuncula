@@ -26,14 +26,6 @@ const ROLES = [
     stack: ["MySQL", "PHP", "JavaScript"],
   },
   {
-    period: "2024",
-    role: "Embedded Developer",
-    org: "Student",
-    blurb:
-      "Built a fingerprint scanner on an Arduino Uno with an LCD display, supporting fingerprint registration, removal, and detection.",
-    stack: ["Arduino", "C++"],
-  },
-  {
     period: "2023 — 2024",
     role: "Front-End Developer",
     org: "Student",
@@ -60,7 +52,7 @@ export default function Experience() {
             02
           </span>
           <span className="text-xs font-medium uppercase tracking-[0.3em] text-paper/40">
-            Experience
+            Non-Professional Experience
           </span>
         </Reveal>
 
