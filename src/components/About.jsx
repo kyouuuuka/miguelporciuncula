@@ -1,4 +1,5 @@
 import Reveal from "./Reveal.jsx";
+import { PROJECTS } from "../data/projects.js";
 
 export default function About() {
   return (
@@ -40,7 +41,7 @@ export default function About() {
           {[
             { k: "4th year", v: "Student" },
             { k: "Bulacan", v: "Location" },
-             { k: "5+", v: "Projects shipped" },
+            { k: `${PROJECTS.length}+`, v: "Projects shipped" },
             { k: "Web · AI", v: "Focus" },
           ].map((s) => (
             <div key={s.v} className="bg-paper px-6 py-8">
